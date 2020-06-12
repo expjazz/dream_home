@@ -1,2 +1,129 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+     <section class="section-1 pt-5">
+          <div class="jumbotron jumbotron-fluid position-relative">
+            <div class="container text-center w-75">
+              <h1 class="title display-4 text-white">Find the perfect home</h1>
+              <%= form_with(url: search_property_path, method: :get, local: true) do |f| %>
+                <div
+                  class="form-container d-flex flex-column text-center w-75 mx-auto"
+                >
+                  <div class="form-border border rounded text-left">
+                    <div class="input-1 d-flex">
+                      <%= fa_icon 'city'%>
+                      <div class="input-container input-group d-flex">
+                      <%= f.label :city, class: 'text-white label-in w-100'%>
+                        <div class="in w-75 pb-3">
+                          <%= f.text_field :city, class: 'city form-control', id: 'city'%>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="input-1 border-top d-flex">
+                      <%= fa_icon 'home'%>
+                      <div class="input-container input-group d-flex">
+                        <div class="item w-50 border-right">
+                          <%= f.label :neighborhood, class: 'w-100 label-in text-white'%>
+                          <div class="in w-75 pb-3">
+                            <%= f.text_field :neighborhood, class: 'w-100 border-0 rounded' %>              
+                          </div>
+                        </div>
+                        <div class="item input-group w-25 pl-2 border-right">
+                          <div class="d-flex svg-cont">             
+                            <%= fa_icon 'tag'%>
+                            <%= f.label :price, class: 'w-100 text-white label-in'%>
+                          </div>
+                          <div class="in w-100 pb-2">
+                          <%= select(:property, :price, [['30000 / 40000', 30000], ['40000 / 50000', 40000], ['50000 / 60000', 50000], ['60000 / 70000', 60000], ['70000 / 80000', 70000], ['80000 / 90000', 80000]], {}, {:class => 'custom-select h-75 py-0 border-0'}) %>                            
+                           </div>
+                        </div>             
+                        <div class="item input-group w-25 pl-2 pb-2">
+                          <div class="d-flex svg-cont">
+                            <%= fa_icon 'bed'%>
+                            <%= f.label :rooms, class: 'w-100 text-white label-in'%>     
+                          </div>
+
+                          <div class="in w-100">    
+                          <%= select(:property, :rooms, [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]], {}, {:class => 'custom-select h-75 py-0 border-0'}) %>                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <%= f.submit 'Find your dream home', class: 'btn btn-lg mt-5 mb-2 btn-primary border-0'%>  
+                  <a href="#" class="text-white">Anounce your house</a>
+                </div>   
+              <% end %>
+            </div>
+          </div>
+        </section>
+       <section class="section-2">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="display-6 text-center text-red">
+                Dream home works like this
+              </h5>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-12">
+              <div
+                class="item w-75 mt-5 d-flex flex-column mx-auto align-items-center mb-3"
+              >
+                <%= link_to search_property_path, class: 'title' do %>
+                  <%= fa_icon 'newspaper', class: 'text-red'%>
+                <% end %>
+                <h5 class="h6 font-weight-bold subtitle my-3 text-uppercase">
+                  1 - Search
+                </h5>
+                <p class="lead text-center text-capitalize">
+                  It's Simple. On Dream Home's Homepage, Enter the city of your
+                  desired livelihood, and then select your other preferences.
+                </p>
+              </div>
+              <div
+                class="item mb-3 w-75 d-flex flex-column mx-auto align-items-center"
+              >
+                <%= link_to search_property_path, class: 'title' do %>
+                  <%= fa_icon 'marked', class: 'text-red'%>
+                <% end %>              
+                <h5 class="h6 my-3 font-weight-bold subtitle text-uppercase">
+                  2 - Locate
+                </h5>
+                <p class="lead text-center text-capitalize">
+                  Get To See Where the desired house Is Located By Clicking On
+                  The house Profile. It's Even More Exciting. You Can Get The
+                  Directions From Anywhere In The Country
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-12 justify-content-center">
+              <div
+                class="item mb-3 mt-0 mt-lg-5 w-75 d-flex flex-column mx-auto align-items-center"
+              >
+                <%= link_to search_property_path, class: 'title' do %>
+                  <%= fa_icon 'file-alt', class: 'text-red'%>
+                <% end %>
+
+                <h5 class="h6 font-weight-bold my-3 subtitle text-uppercase">
+                  3 - Apply
+                </h5>
+                <p class="lead text-center text-capitalize">
+                  Apply For Your Interview To The House Of Your Choice. Click On
+                  The APPLY Button To Get The Application Form. We Also Follow
+                  Up On The Application To Make Sure You Get A Reply On Time.
+                </p>
+              </div>
+              <div
+                class="item w-75 d-flex flex-column mx-auto align-items-center"
+              >
+                <%= link_to search_property_path, class: 'title' do %>
+                  <%= fa_icon 'umbrella', class: 'text-red'%>
+                <% end %>
+                <h5 class="h6 font-weight-bold subtitle my-3 text-uppercase">
+                  4 - Relax
+                </h5>
+                <p class="lead text-center text-capitalize">
+                  Once Your lise Gets approved, You Can Now Relax.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
