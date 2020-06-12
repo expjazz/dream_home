@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'property/new'
-  get 'property/create'
-  get 'property/update'
-  get 'property/destroy'
-  get 'property/show'
-  get 'pages/home'
   root 'pages#home'
-  get 'search_property', to: 'pages#search'
+
+  get 'pages/home'
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  resources :properties
+
   resources :users, only: [:show]
+  resources :properties
+
+  get 'search_property', to: 'pages#search'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,2 +1,6 @@
-<h1>Pages#search</h1>
-<p>Find me in app/views/pages/search.html.erb</p>
+<%= @properties.each do |p| %>
+  <%= image_tag p.image[0] %>
+  <h3> <%= p.city%> </h3>
+
+<% end %>
+
