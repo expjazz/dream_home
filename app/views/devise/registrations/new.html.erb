@@ -34,6 +34,11 @@
     <%= f.text_field :address, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
 
+    <div class="form-group">
+      <%= f.label :profile %>
+      <%= select(:user, :profile_type, [['Buy', 'Buyer'], ['Sell', 'Seller']], {}, {:class => 'form-control'}) %>                            
+    </div>
+
   <div class="form-group">
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
   </div>

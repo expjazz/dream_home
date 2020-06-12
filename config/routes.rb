@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'pages/home'
   root 'pages#home'
   get 'search_property', to: 'pages#search'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :properties
   resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
