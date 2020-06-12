@@ -16,4 +16,5 @@ class Property < ApplicationRecord
   scope :filter_meter_mid, ->(measure_one, measure_two) { where("square_meters > #{measure_one}").where("square_meters < #{measure_two}") }
   scope :filter_pets, ->(pets) { where(pets: pets) }
   scope :filter_pool_area, ->(pool) { where(pool_area: pool) }
+  has_many :likes
 end
