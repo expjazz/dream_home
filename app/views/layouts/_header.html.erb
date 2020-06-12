@@ -30,11 +30,11 @@
                     data-toggle="dropdown"
                     id="dropB"
                   >
-                    Houses
+                    Sell
                   </button>
                   <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item text-dark">Buy</a>
-                    <a href="#" class="dropdown-item text-dark">Rent</a>
+                    <%= link_to 'House', new_property_path, class: 'dropdown-item text-dark'%>
+                    <%= link_to 'Apartment', new_property_path, class: 'dropdown-item text-dark'%>
                   </div>
                 </div>
               </li>
