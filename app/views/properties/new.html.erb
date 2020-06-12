@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="container">
   <h4 class="h2"> Want to sell? Fill the information below.</h4>
 
   <%= form_with model: @property, local: true, class: 'text-body' do |f| %>
@@ -37,8 +37,15 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :specie %>
+      <%= select(:property, :specie_type, [['House', 'House'], ['Apartment', 'Apartment']], {}, {:class => 'form-control'}) %>                            
+    </div>
+
+    <div class="form-group">
       <%= f.label :pets %>
       <%= f.select(:pets, [['yes', true], ['no', false]], {}, {:class => 'form-control'}) %>                            
     </div>
+
+    <%= f.submit 'Submit', class: 'btn' %>
   <% end %>
 </div>
