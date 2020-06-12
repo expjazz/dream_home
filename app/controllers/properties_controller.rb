@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
                        elsif params[:property][:specie_type] == 'Apartment'
                          Apartment.create
                        end
+    @property.image.attach(params[:property][:image])
     byebug
     if @property.save
       flash[:notice] = 'Your property was saved with success'
@@ -28,7 +29,9 @@ class PropertiesController < ApplicationController
 
   def destroy; end
 
-  def show; end
+  def show
+    @property = Property.find(params[:id])
+  end
 
   private
 

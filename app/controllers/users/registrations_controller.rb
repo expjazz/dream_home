@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
+    @user.image.attach(params[:user][:image])
     if params[:user][:profile_type] == 'Buyer'
       @user.profile = Buyer.create
       # @employee = Employee.new
