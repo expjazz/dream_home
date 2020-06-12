@@ -39,6 +39,10 @@
       <%= select(:user, :profile_type, [['Buy', 'Buyer'], ['Sell', 'Seller']], {}, {:class => 'form-control'}) %>                            
     </div>
 
+    <div class="form-group">
+      <%= f.file_field :image, id: 'image' %>
+    </div>
+
   <div class="form-group">
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
   </div>

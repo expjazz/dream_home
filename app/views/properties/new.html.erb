@@ -46,6 +46,10 @@
       <%= f.select(:pets, [['yes', true], ['no', false]], {}, {:class => 'form-control'}) %>                            
     </div>
 
+    <div class="form-group">
+      <%= f.file_field :image, id: 'image', multiple: true %>
+    </div>
+
     <%= f.submit 'Submit', class: 'btn' %>
   <% end %>
 </div>
