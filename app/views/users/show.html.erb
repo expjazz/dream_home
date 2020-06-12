@@ -1,0 +1,143 @@
+
+<div class="container emp-profile">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                          <%= image_tag @user.image%>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        <%= @user.image%>
+                                    </h5>
+                                    <h6>
+                                        <%= @user.profile_type %>
+                                    </h6>
+                                    <p class="proile-rating">RANKINGS : <span> <%= like_count(@user) %> </span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <%= button_tag 'Profile', class: 'nav-link active', id: 'home-tab' %>
+                                </li>
+                                <li class="nav-item">
+                                    <%= button_tag 'Edit', class: 'nav-link active', id: 'home-tab' %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Properties for sale</p>
+                            <% @user.properties.each do |property| %>
+                              <%= link_to property.city, property_path(property)%>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> <%= @user.name %> </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> <%= @user.email %> </p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Adress </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p> <%= @user.address %> </p>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+<div class="container emp-profile d-none" id='user-form'>
+              <%= form_with(model: @user, method: :patch, local: true) do |f| %>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                          <%= image_tag @user.image%>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                            <%= f.file_field :image, id: 'image' %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        <%= @user.image%>
+                                    </h5>
+                                    <h6>
+                                        <%= @user.profile_type %>
+                                    </h6>
+                                    <p class="proile-rating">RANKINGS : <span> <%= like_count(@user) %> </span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <%= button_tag 'Profile', class: 'nav-link active', id: 'home-tab' %>
+                                </li>
+                                <li class="nav-item">
+                                    <%= button_tag 'Edit', class: 'nav-link active', id: 'home-tab' %>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Properties for sale</p>
+                            <% @user.properties.each do |property| %>
+                              <%= link_to property.city, property_path(property)%>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <%= f.label :name %>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= f.text_field :name %>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <%= f.label :email %>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= f.email_field :email %>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <%= f.label :address %>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <%= f.text_fied :address %>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              <% end %>
+        </div>
