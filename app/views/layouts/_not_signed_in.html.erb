@@ -1,0 +1,17 @@
+              <li class="nav-item">
+                <%= link_to new_user_session_path, class: 'nav-link' do %>
+                  <%= fa_icon 'sign-in-alt'%>
+                <% end %>
+              </li>
+              
+              <li class="nav-item">
+                <%= link_to "Sign-In", new_user_session_path, class: 'nav-link hidden'%>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_registration_path, class: 'nav-link hidden' do %>
+                  <%= fa_icon 'user-plus'%>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign-up', new_user_registration_path, class: 'nav-link hidden'%>
+              </li>

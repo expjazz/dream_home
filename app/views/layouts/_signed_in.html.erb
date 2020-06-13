@@ -1,0 +1,15 @@
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle border-0 hidden"
+                    data-toggle="dropdown"
+                    id="dropB"
+                  >
+                    <%= current_user.name %>
+                  </button>
+                  <div class="dropdown-menu">
+                    <%= link_to 'Profile', users_show_path(current_user), class: 'dropdown-item text-dark'%>
+                    <%= link_to 'Delete my profile', registration_path(current_user), data: { confirm: t('.are_you_sure') }, method: :delete , class: 'dropdown-item text-dark'%>
+                  </div>
+                </div>
+              </li>
