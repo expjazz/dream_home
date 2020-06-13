@@ -33,7 +33,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = Property.all
+    @properties = Property.paginate(page: params[:page], per_page: 30)
   end
 
   private

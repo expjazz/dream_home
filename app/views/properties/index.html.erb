@@ -1,4 +1,10 @@
 <div class="container pt-5">
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @properties %>
+    </div>
+    <%= will_paginate @properties, :container => false %>
+  </div>
   <%  @properties.each do |property| %>
     <div class="card-container d-flex">
       <div id="carouselExampleControls" class="carousel slide w-75 overflow-hidden" data-ride="carousel">
