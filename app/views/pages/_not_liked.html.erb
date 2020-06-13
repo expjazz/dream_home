@@ -1,4 +1,4 @@
-                      <%= link_to property_likes_path(@property), method: :post, remote: true do %>
+                      <%= link_to property_likes_path(@property), method: :post do %>
                         
                         <%= fa_icon 'thumbs-up'%> <%= pluralize(@property.likes.count, 'like') %>
                       <% end %>

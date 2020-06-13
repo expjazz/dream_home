@@ -26,7 +26,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # @manager.save
       # @user.profile = @manager
     end
-    byebug
     if @user.save
       sign_in @user
       redirect_to root_path

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  def home; end
+  def home
+    @properties = Property.all
+  end
 
   def search
     @properties = Property.all

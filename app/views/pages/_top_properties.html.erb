@@ -1,0 +1,43 @@
+      <section class="section-4">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="h6 text-center text-red my-5">See houses in London</h5>
+            </div>
+          </div>
+          <div class="row px-3">
+            <% @properties.each do |property| %>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="card flex-row flex-md-column">
+                <%= image_tag property.image[0], class: 'card-img-top' %>
+                <div class="card-body">
+                  <p class="legend"> <%= property.specie_type%> </p>
+                  <h6 class="card-subtitle font-weight-bold"> <%= property.city %> </h6>
+                  <h6 class="card-subtitle"> <%= property.neighborhood %> </h6>
+                  <div class="meters d-flex flex-wrap flex-md-nowrap">
+                    <small class="text-muted mr-3"
+                      > <%= fa_icon 'bars' %> <%= pluralize(property.square_meters, 'meters') %> </small
+                    >
+                    <small class="text-muted"
+                      ><%= fa_icon 'bars' %> <%= pluralize(property.bedrooms, 'bedroom')%> </small
+                    >
+                  </div>
+                  <div class="bottom d-md-flex justify-content-between">
+                    <div class="left d-flex flex-column">
+                      <small class="text-muted"> rent for <%= property.price %>$ </small>
+                      <p class="font-weight-bold">rent plus taxes for $5000</p>
+                    </div>
+                    <div
+                      class="left d-flex align-self-center flex-wrap flex-md-nowrap"
+                    >
+                      <% @property = property%>
+                      <%= render 'pages/likes', :locals => { property: @property } %>
+                      <%# <a href="#"> <i class="fas fa-trash"></i> </a>
+                      <a href="#"> <i class="far fa-heart"></i></a> %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </section>
