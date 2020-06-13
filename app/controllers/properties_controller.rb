@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PropertiesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create update]
   def new
     @property = Property.new
   end
@@ -15,7 +15,6 @@ class PropertiesController < ApplicationController
                          Apartment.create
                        end
     @property.image.attach(params[:property][:image])
-    byebug
     if @property.save
       flash[:notice] = 'Your property was saved with success'
       redirect_to property_path(@property)
@@ -31,6 +30,10 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+  end
+
+  def index
+    @properties = Property.all
   end
 
   private
