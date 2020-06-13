@@ -17,13 +17,10 @@
                       <small class="text-muted"> <%= property.neighborhood %> </small>
                       <p class="font-weight-bold"> <%= property.city %> </p>
                     </div>
-                    <div class="right d-flex align-self-center">
-                      <%= link_to user_likes_create_path(property) do %>
-                        <%= fa_icon 'thumbs-up'%>
-                      <% end %>
-                      <%= link_to user_likes_destroy_path(property) do %>
-                        <%= fa_icon 'thumbs-down'%>
-                      <% end %>
+                    <% @property = property %>
+                    <div class="right d-flex align-self-center" id='likes-search'>
+                      <%= render 'pages/likes', :locals => { property: @property } %>
+
                     </div>
                   </div>
                 </div>

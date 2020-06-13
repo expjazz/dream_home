@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users, only: [:show]
-  resources :properties
-  post 'user_likes_create', to: 'users#likes_create'
-  delete 'user_likes_destroy', to: 'users#likes_destroy'
+  resources :properties do
+    resources :likes, only: %i[create destroy]
+  end
+  # post '/user_likes_create/:id', to: 'users#likes_create'
+  # delete '/user_likes_destroy/:id', to: 'users#likes_destroy'
   get 'search_property', to: 'pages#search'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

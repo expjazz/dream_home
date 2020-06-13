@@ -3,13 +3,13 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                          <%= image_tag @user.image%>
+                          <%= image_user(@user) %>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <%= @user.image%>
+                                        <%= @user.name %>
                                     </h5>
                                     <h6>
                                         <%= @user.profile_type %>
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                          <%= image_tag @user.image%>
+                          <%= image_user(@user) %>
                             <div class="file btn btn-lg btn-primary">
                                 Change Photo
                             <%= f.file_field :image, id: 'image' %>
@@ -82,7 +82,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        <%= @user.image%>
+                                        <%= @user.name%>
                                     </h5>
                                     <h6>
                                         <%= @user.profile_type %>
@@ -132,7 +132,7 @@
                                                 <%= f.label :address %>
                                             </div>
                                             <div class="col-md-6">
-                                                <%= f.text_fied :address %>
+                                                <%= f.text_field :address %>
                                             </div>
                                         </div>
                             </div>

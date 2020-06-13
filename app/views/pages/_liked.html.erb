@@ -1,0 +1,5 @@
+<p>            <%= fa_icon 'thumbs-up'%> <%= pluralize(@property.likes.count, 'like') %> </p>            
+                      <%= link_to property_like_path(@property, Like.find_by(user: current_user, property: @property)), method: :delete do %>
+                        <%= fa_icon 'thumbs-down', class: 'ml-2'%>
+                      <% end %>
+
