@@ -11,8 +11,8 @@
                 <%= image_tag property.image[0], class: 'card-img-top' %>
                 <div class="card-body">
                   <p class="legend"> <%= property.specie_type%> </p>
-                  <h6 class="card-subtitle font-weight-bold"> <%= property.city %> </h6>
-                  <h6 class="card-subtitle"> <%= property.neighborhood %> </h6>
+                  <h6 class="card-subtitle font-weight-bold"> <%= property.street %> </h6>
+                  <h6 class="card-subtitle"> <%= property.city %> </h6>
                   <div class="meters d-flex flex-wrap flex-md-nowrap">
                     <small class="text-muted mr-3"
                       > <%= fa_icon 'bars' %> <%= pluralize(property.square_meters, 'meters') %> </small

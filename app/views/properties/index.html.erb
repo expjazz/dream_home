@@ -35,8 +35,10 @@
           Price: <%= property.price %> R$
         </div>
         <div class="card-body">
-          <h5 class="card-title"> Neighborhood: <%= property.neighborhood%> </h5>
-          <p class="card-text"> City: <%= property.city%> </p>
+          <h5 class="card-title"> Neighborhood: <%= property.city%> </h5>
+          <p class="card-text"> City: <%= property.neighborhood%> </p>
+
+          <p class="card-text"> City: <%= property.street%> </p>
           <p class="card-text"> Meters: <%= property.square_meters%> </p>
 
           <%= link_to 'Check this offer', property_path(property), class: 'btn btn-primary'%>

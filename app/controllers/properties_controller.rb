@@ -33,7 +33,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = Property.paginate(page: params[:page], per_page: 30)
+    @properties = Property.paginate(page: params[:page], per_page: 10)
   end
 
   private
@@ -42,6 +42,6 @@ class PropertiesController < ApplicationController
     params.require(:property).permit(:city, :neighborhood,
                                      :specie, :bedrooms, :price,
                                      :pool_area, :pets, :square_meters,
-                                     :bathrooms)
+                                     :bathrooms, :street)
   end
 end

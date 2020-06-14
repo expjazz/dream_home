@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_173549) do
+ActiveRecord::Schema.define(version: 2020_06_14_103237) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,18 @@ ActiveRecord::Schema.define(version: 2020_06_13_173549) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "inbox_messages", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
+    t.integer "property_id", null: false
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_inbox_messages_on_property_id"
+    t.index ["receiver_id"], name: "index_inbox_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_inbox_messages_on_sender_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "property_id", null: false
@@ -72,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_173549) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "street"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
@@ -97,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_173549) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "inbox_messages", "properties"
   add_foreign_key "likes", "properties"
   add_foreign_key "likes", "users"
   add_foreign_key "properties", "users"
