@@ -1,0 +1,14 @@
+<div class="d-none message-form positio-relative" id="message-form">
+<div class="close position-absolute close-button" id='close-button'>x</div>
+<%= form_with model: @inbox_message, local: true do |f| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> Send a message to the owner </h5>
+    <div class="form-group">
+      <%= f.text_area :body, size: '10x10', class: 'form-control'%>
+    </div>
+    <%= f.submit 'Send a message', class: 'btn bg-primary btn-primary justify-self-center text-white' %>
+  </div>
+</div>
+<% end %>
+</div>

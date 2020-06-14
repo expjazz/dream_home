@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :properties do
     resources :likes, only: %i[create destroy]
+    resources :inbox_messages
   end
   # post '/user_likes_create/:id', to: 'users#likes_create'
   # delete '/user_likes_destroy/:id', to: 'users#likes_destroy'

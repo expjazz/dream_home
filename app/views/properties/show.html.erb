@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id='blur'>
   <div class="row">
     <%= render 'properties/carousel'%>
   </div>
@@ -22,14 +22,8 @@
               <span> Bathrooms: <%= @property.bathrooms %></span>
             </div>
           </div>
-          <form action="./index.html" class="text-center mb-md-5 mb-3">
-            <button
-              class="btn bg-primary btn-primary justify-self-center text-white"
-              type="submit"
-            >
-              I want my dream house
-            </button>
-          </form>
+            <%= button_tag 'I want my dream house', class: 'btn bg-primary btn-primary justify-self-center text-white', id: 'message-toggler'%>
+
           <div
             class="d-flex flex-column flex-md-row align-items-center px-5 justify-content-around"
           >
@@ -60,3 +54,7 @@
           </div>
         </section>
 </div>
+        <%= render 'properties/message'%>
+
+
+<%= javascript_pack_tag 'blur_message' %>

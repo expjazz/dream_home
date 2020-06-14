@@ -2,3 +2,23 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.blur-active {
+  filter: blur(5px);
+}
+.message-form {
+  position: fixed;
+  top: 20%;
+  right: 37%;
+}
+
+.close-button {
+  width: 25px;
+  /* background: blue; */
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  z-index: 899;
+  height: 20px;
+  border: 1px solid black;
+}

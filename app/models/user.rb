@@ -9,4 +9,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :likes
   has_many :properties
+  has_many :messages_sent, class_name: 'InboxMessage', foreign_key: 'sender_id'
+  has_many :messages_received, class_name: 'InboxMessage', foreign_key: 'receiver_id'
 end
