@@ -17,4 +17,5 @@ class Property < ApplicationRecord
   scope :filter_pets, ->(pets) { where(pets: pets) }
   scope :filter_pool_area, ->(pool) { where(pool_area: pool) }
   has_many :likes
+  has_many :inbox_messages
 end

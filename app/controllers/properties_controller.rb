@@ -30,6 +30,7 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    @inbox_messge = InboxMessage.new
   end
 
   def index

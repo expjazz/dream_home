@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'inbox_messages/create'
   get 'users/show'
   root 'pages#home'
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :properties do
     resources :likes, only: %i[create destroy]
-    resources :inbox_messages
+    resources :inbox_messages, only: [:create]
   end
   # post '/user_likes_create/:id', to: 'users#likes_create'
   # delete '/user_likes_destroy/:id', to: 'users#likes_destroy'
