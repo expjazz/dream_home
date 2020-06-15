@@ -21,7 +21,9 @@ module UsersHelper
       liked = true if like.user == user
       break if like == true
     end
-    if liked == true
+    if user.nil?
+      render 'pages/liked_no_user'
+    elsif liked == true
       render 'pages/liked'
     else
       render 'pages/not_liked'
