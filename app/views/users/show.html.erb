@@ -1,5 +1,5 @@
 
-<div class="container emp-profile">
+<div class="container emp-profile" id='user-profile'>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -17,12 +17,15 @@
                                     <p class="proile-rating">RANKINGS : <span> <%= like_count(@user) %> </span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <%= button_tag 'Profile', class: 'nav-link active', id: 'home-tab' %>
+                                    <%= link_to 'Profile', '#', class: 'nav-link active bg-dark', id: 'view-profile' %>
                                 </li>
                                 <li class="nav-item">
-                                    <%= button_tag 'Edit', class: 'nav-link active', id: 'home-tab' %>
+                                    <%= link_to 'Edit', '#', class: 'nav-link active', id: 'edit-profile' %>
                                 </li>
-                            </ul>
+                                <li class="nav-item">
+                                    <%= button_tag 'Inbox', class: 'nav-link bg-light', id: 'inbox' %>
+                                </li>
+   </ul>
                         </div>
                     </div>
                 </div>
@@ -90,10 +93,13 @@
                                     <p class="proile-rating">RANKINGS : <span> <%= like_count(@user) %> </span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <%= button_tag 'Profile', class: 'nav-link active', id: 'home-tab' %>
+                                    <%= link_to 'Profile', '#', class: 'nav-link active', id: 'view-profile-h' %>
                                 </li>
                                 <li class="nav-item">
-                                    <%= button_tag 'Edit', class: 'nav-link active', id: 'home-tab' %>
+                                    <%= link_to 'Edit', '#', class: 'nav-link active', id: 'edit-profile-h' %>
+                                </li>
+                                <li class="nav-item">
+                                    <%= button_tag 'Inbox', class: 'nav-link bg-light', id: 'inbox' %>
                                 </li>
                             </ul>
                         </div>
@@ -141,3 +147,5 @@
                 </div>
               <% end %>
         </div>
+
+<%= javascript_pack_tag 'editprofile' %>
