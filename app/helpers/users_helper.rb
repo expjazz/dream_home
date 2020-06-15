@@ -37,4 +37,8 @@ module UsersHelper
   def not_liked
     render 'pages/not_liked'
   end
+
+  def current_user_show
+    render 'layouts/current_user_show' if user_signed_in?
+  end
 end

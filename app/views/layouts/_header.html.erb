@@ -10,15 +10,7 @@
           </div>
           <div class="nav-right">
             <ul class="navbar-nav flex-row w-100">
-              <li class="nav-item">
-                <%= link_to '#', class: 'nav-link' do %>
-                  <%= fa_icon 'user'%>
-                <% end %>
-                
-              </li>
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link hidden">Home</a>
-              </li>
+              <%= current_user_show %>
               <li class="nav-item">
                 <%= link_to new_property_path, class: 'nav-link' do %>
                   <%= fa_icon 'home'%>
