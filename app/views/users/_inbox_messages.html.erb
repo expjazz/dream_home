@@ -1,16 +1,25 @@
-
+<div class="d-none message-form positio-relative" id="message-form">
 <% current_user.messages_received.each do |msg| %>
-
-<% end %>
-<div class="card">
+  <div class="card">
   <div class="card-body">
     <h4 class="card-title"> <%=%> </h4>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <h6 class="card-subtitle mb-2 text-muted"> <%= msg.sender.name%> </h6>
     <p class="card-text">
-      Some quick example text to build on the card title
-      and make up the bulk of the card's content.
+      <%= msg.body%>
     </p>
-    <a href="#!" class="card-link">Card link</a>
-    <a href="#!" class="card-link">Another link</a>
   </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-muted">Type below your answer</h6>
+    <%= form_with(scope: @property.inbox_messages.new, url: property_inbox_messages_path(msg.property), method: :post, local: true) do |f| %>
+          <%= f.text_area :body, size: '10x10', class: 'form-control'%>
+          <%= f.hidden_field :property_id, value: msg.property.id %>
+          <%= f.hidden_field :receiver_id, value: msg.sender.id %>
+          <%= f.submit 'Send a message', class: 'btn bg-primary btn-primary justify-self-center text-white' %>
+    <% end %>
+  </div>
+</div>
+
+<% end %>
 </div>
